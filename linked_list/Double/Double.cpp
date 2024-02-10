@@ -20,9 +20,9 @@ main()
 	head->prev = nullptr;
 	head->next = nullptr;
 
-	insert_after(head, 22);
-	insert_after(head, 32);
-	insert_after(head, 28);
+	insert_after(head, 1);
+	insert_after(head->next, 2);
+	insert_after(head->next->next, 3);
 
 	print_all(head);
 
