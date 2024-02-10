@@ -8,6 +8,7 @@ typedef struct Node {
 
 void print_all(Node* head);
 void insert_after(Node* prev_node, const int& num);
+void insert_before(Node* next_node, const int& num);
 void delete_nodes(Node* head);
 void delete_after(Node* prev_node);
 
@@ -21,8 +22,9 @@ main()
 	head->next = nullptr;
 
 	insert_after(head, 1);
-	insert_after(head->next, 2);
+	insert_after(head->next, 3);
 	insert_after(head->next->next, 3);
+	insert_before(head->next, 7);
 
 	print_all(head);
 
@@ -47,6 +49,27 @@ insert_after(Node* prev_node, const int& num)
 
 		// add the node to the linked list
 		prev_node->next = nw_node;
+	}
+}
+
+void
+insert_before(Node* next_node, const int& num)
+{
+	if (next_node == nullptr) { // if the head is not set
+		return;
+	} else {
+		// new nodes
+		Node* nw_node;
+
+		// create the node
+		nw_node = new Node;
+		nw_node->num = num;
+
+		nw_node->prev = next_node->prev;
+		nw_node->next = next_node;
+
+		next_node->prev->next = nw_node;
+		next_node->prev = nw_node;
 	}
 }
 
