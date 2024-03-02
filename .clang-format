@@ -20,6 +20,6 @@ SortIncludes: 'true'
 SortUsingDeclarations: 'true'
 Standard: Auto
 TabWidth: '8'
-UseTab: ForIndentation
+UseTab: Never
 
 ...
