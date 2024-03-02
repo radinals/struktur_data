@@ -1,7 +1,9 @@
 #include "ExecCommand.h"
+
 #include "Database.h"
 #include "Prompt.h"
 #include "Search.h"
+
 #include <cstdlib>
 #include <iostream>
 #include <stdexcept>
@@ -67,7 +69,6 @@ exec_cmd(UserCmd* user_cmd)
 	} break;
 
 	case CMDTYPE_Help: {
-		// clang-format off
 		std::cout
 		    << "KtpDB v0.0.1: Implementasi Database Sederhana\n"
 		    << "Author: RSS\n\n"
@@ -86,7 +87,6 @@ exec_cmd(UserCmd* user_cmd)
 		    << "\tEDIT NAMA #12          -> edit data NAMA di index 12\n"
 		    << "- ADDING\n"
 		    << "\tADD                    -> (input data baru)\n";
-		// clang-format on
 	} break;
 
 	case CMDTYPE_Quit:

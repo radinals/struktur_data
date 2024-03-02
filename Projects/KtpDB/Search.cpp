@@ -1,7 +1,9 @@
 #include "Search.h"
+
 #include "Database.h"
 #include "Prompt.h"
 #include "StrUtils.h"
+
 #include <cstddef>
 #include <stdexcept>
 #include <string>

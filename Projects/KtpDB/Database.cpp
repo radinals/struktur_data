@@ -1,5 +1,7 @@
 #include "Database.h"
+
 #include "Prompt.h"
+
 #include <cctype>
 #include <cstring>
 #include <iostream>

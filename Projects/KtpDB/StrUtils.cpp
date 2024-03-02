@@ -1,4 +1,5 @@
 #include "StrUtils.h"
+
 #include <cctype>
 
 std::list<std::string>
