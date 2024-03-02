@@ -80,7 +80,7 @@ exec_cmd(UserCmd* user_cmd)
 		    << "- Deleting\n"
 		    << "\tDELETE #12             -> hapus data di index 12.\n"
 		    << "\tDELETE ALL NAMA joko   -> hapus SEMUA data yang memiliki NAMA joko\n"
-		    << "\tDELETE FIRST NAMA joko -> hapus data PERTAMA yangditemukan memiliki NAMA joko.\n"
+		    << "\tDELETE FIRST NAMA joko -> hapus data PERTAMA yang ditemukan memiliki NAMA joko.\n"
 		    << "- EDIT\n"
 		    << "\tEDIT #12               -> re-input data index 12.\n"
 		    << "\tEDIT NAMA #12          -> edit data NAMA di index 12\n"
