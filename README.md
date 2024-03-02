@@ -1,7 +1,6 @@
 ## Tugas Praktikum & Mata Kuliah Struktur Data, serta latihan-latihan mandiri.
 
-### Struktur Data
-
+#### TODO:
 * [ ] Singly Linked List
 * [ ] Double Linked List
 * [ ] Circular Linked List
