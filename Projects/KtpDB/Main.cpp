@@ -12,20 +12,20 @@ size_t DatabaseLen;
 int
 main()
 {
-        init_database();
+	init_database();
 
-        while (true) {
-                UserCmd cmd;
-                try {
-                        std::cout << "\n";
-                        cmd = prompt_user();
-                        std::cout << "\n";
-                } catch (std::invalid_argument) {
-                        std::cout << "\nERROR: Perintah Invalid!\n";
-                        continue;
-                }
-                exec_cmd(&cmd);
-        }
+	while (true) {
+		UserCmd cmd;
+		try {
+			std::cout << "\n";
+			cmd = prompt_user();
+			std::cout << "\n";
+		} catch (std::invalid_argument) {
+			std::cout << "\nERROR: Perintah Invalid!\n";
+			continue;
+		}
+		exec_cmd(&cmd);
+	}
 
-        return 0;
+	return 0;
 }
