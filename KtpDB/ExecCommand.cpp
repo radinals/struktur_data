@@ -53,7 +53,7 @@ exec_cmd(UserCmd* user_cmd)
 		}
 	} break;
 
-	case CMDTYPE_Modify:
+	case CMDTYPE_Modify: {
 		if (user_cmd->target_type == Target_index) {
 			DataKtp* data = data_at(user_cmd->inum);
 			if (data != nullptr)
@@ -64,9 +64,9 @@ exec_cmd(UserCmd* user_cmd)
 		} else if (user_cmd->target_type == Target_member) {
 			edit_data_at(user_cmd->member, user_cmd->inum);
 		}
-		break;
+	} break;
 
-	case CMDTYPE_Help:
+	case CMDTYPE_Help: {
 		// clang-format off
 		std::cout
 		    << "KtpDB v0.0.1: Implementasi Database Sederhana\n"
@@ -85,9 +85,9 @@ exec_cmd(UserCmd* user_cmd)
 		    << "\tEDIT #12               -> re-input data index 12.\n"
 		    << "\tEDIT NAMA #12          -> edit data NAMA di index 12\n"
 		    << "- ADDING\n"
-		    << "\tADD -> (input data baru)\n";
+		    << "\tADD                    -> (input data baru)\n";
 		// clang-format on
-		break;
+	} break;
 
 	case CMDTYPE_Quit:
 		exit(0);

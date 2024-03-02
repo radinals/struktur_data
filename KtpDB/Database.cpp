@@ -501,7 +501,7 @@ print_data_at(size_t index)
 {
 	DataKtp* data_ktp = data_at(index);
 	if (data_ktp == nullptr)
-		return;
+		throw std::out_of_range("Index Invalid");
 
 	std::cout << "INDEX DATA         : #" << index << "\n";
 	std::cout << "NIK                : " << data_ktp->nik << "\n";

@@ -165,10 +165,15 @@ parse_input(UserCmd& user_cmd, const std::string& str)
 			} else if (token == "SUDAH_KAWIN") {
 				user_cmd.member = MEM_SudahKawin;
 				user_cmd.target_type = Target_member;
+				target_type_found = true;
+				index_found = true;
+				break;
 			} else if (token == "BELUM_KAWIN") {
 				user_cmd.member = MEM_BelumKawin;
 				user_cmd.target_type = Target_member;
 				target_type_found = true;
+				index_found = true;
+				break;
 			} else if (token == "PEKERJAAN") {
 				user_cmd.member = MEM_Pekerjaan;
 				user_cmd.target_type = Target_member;
@@ -187,12 +192,23 @@ parse_input(UserCmd& user_cmd, const std::string& str)
 			if (!target_type_found)
 				user_cmd.target_type = Target_index;
 
+			if (user_cmd.type == CMDTYPE_Delete &&
+			    user_cmd.target_type == Target_index)
+				break;
+
+			if ((user_cmd.type == CMDTYPE_Search ||
+			     user_cmd.type == CMDTYPE_Modify) &&
+			    command_scope_found)
+				break;
+
 			remove_all_char(token, '#');
 			user_cmd.str += token;
 
 			index_found = true;
 			target_type_found = true;
+
 			command_scope_found = true;
+
 			break;
 		}
 	}

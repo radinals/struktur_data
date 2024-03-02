@@ -21,7 +21,7 @@ main()
 			cmd = prompt_user();
 			std::cout << "\n";
 		} catch (std::invalid_argument) {
-			std::cout << "ERROR: Perintah Invalid!\n";
+			std::cout << "\nERROR: Perintah Invalid!\n";
 			continue;
 		}
 		exec_cmd(&cmd);

@@ -13,9 +13,9 @@ typedef enum {
 } CommandType;
 
 typedef enum {
+	Target_None,
 	Target_member,
 	Target_index,
-	Target_None,
 } CmdTargetType;
 
 typedef enum {
