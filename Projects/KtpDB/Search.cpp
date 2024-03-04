@@ -1,13 +1,13 @@
 #include "Search.h"
 
+#include "DataKtp.h"
 #include "Database.h"
-#include "Prompt.h"
+#include "UserCmd.h"
 
 #include <cstddef>
 #include <list>
 #include <stdexcept>
 #include <string>
-#include <strings.h>
 
 size_t
 sequential_search(const UserCmd& cmd, size_t start)

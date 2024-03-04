@@ -1,8 +1,11 @@
 #include "ExecCommand.h"
 
+#include "DataKtp.h"
 #include "Database.h"
-#include "Prompt.h"
+#include "InputData.h"
+#include "PrintData.h"
 #include "Search.h"
+#include "UserCmd.h"
 
 #include <cstdlib>
 #include <iostream>
