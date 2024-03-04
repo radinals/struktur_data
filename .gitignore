@@ -6,3 +6,5 @@
 !.cpp
 !*.md
 !.md
+!*.gitignore
+!.gitignore
