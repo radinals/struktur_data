@@ -71,22 +71,26 @@ exec_cmd(UserCmd* user_cmd)
 	case CMDTYPE_Help: {
 		std::cout
 		    << "KtpDB v0.0.1: Implementasi Database Sederhana\n"
+		    << "Report Bugs to: https://github.com/radinals/struktur_data\n"
 		    << "Author: RSS\n\n"
 		    << "- List\n"
+		    << "- Printing\n"
 		    << "\tLIST                   -> Tampilkan Semua Data\n"
 		    << "- Pencarian\n"
-		    << "\tSEARCH #12             -> tampilkan data di index 12.\n"
-		    << "\tSEARCH ALL NAMA joko   -> cari SEMUA data yang memiliki NAMA 'joko' dan tampilkan.\n"
-		    << "\tSEARCH FIRST NAMA joko -> tampilkan data PERTAMA yang ditemukan memiliki NAMA joko.\n"
+		    << "\tSEARCH #12             -> Tampilkan data di index 12.\n"
+		    << "\tSEARCH ALL NAMA budi   -> Cari SEMUA data yang memiliki NAMA 'budi' dan tampilkan.\n"
+		    << "\tSEARCH FIRST NAMA budi -> Tampilkan data PERTAMA yang ditemukan memiliki NAMA budi.\n"
 		    << "- Deleting\n"
-		    << "\tDELETE #12             -> hapus data di index 12.\n"
-		    << "\tDELETE ALL NAMA joko   -> hapus SEMUA data yang memiliki NAMA joko\n"
-		    << "\tDELETE FIRST NAMA joko -> hapus data PERTAMA yang ditemukan memiliki NAMA joko.\n"
+		    << "\tDELETE #12             -> Hapus data di index 12.\n"
+		    << "\tDELETE ALL NAMA budi   -> Hapus SEMUA data yang memiliki NAMA budi\n"
+		    << "\tDELETE FIRST NAMA budi -> Hapus data PERTAMA yang ditemukan memiliki NAMA budi.\n"
 		    << "- EDIT\n"
-		    << "\tEDIT #12               -> re-input data index 12.\n"
-		    << "\tEDIT NAMA #12          -> edit data NAMA di index 12\n"
+		    << "\tEDIT #12               -> Re-input data index 12.\n"
+		    << "\tEDIT NAMA #12          -> Edit data NAMA di index 12\n"
 		    << "- ADDING\n"
-		    << "\tADD                    -> (input data baru)\n";
+		    << "\tADD                    -> (input data baru)\n"
+		    << "- Informasi\n"
+		    << "\tHELP                   -> Tampilkan manual ini\n";
 	} break;
 
 	case CMDTYPE_Quit:
