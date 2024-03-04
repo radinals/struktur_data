@@ -2,9 +2,9 @@
 
 #include "Database.h"
 #include "Prompt.h"
-#include "vector"
 
 #include <cstddef>
+#include <list>
 
-size_t sequential_search(UserCmd* cmd, size_t start = 0);
-std::vector<size_t> sequential_search_all(UserCmd* cmd);
+size_t sequential_search(const UserCmd& cmd, size_t start = 0);
+std::list<size_t> sequential_search_all(const UserCmd& cmd);

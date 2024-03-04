@@ -5,6 +5,7 @@
 #include <cctype>
 #include <cstring>
 #include <iostream>
+#include <list>
 #include <stdexcept>
 #include <string>
 #include <strings.h>
@@ -541,14 +542,12 @@ print_data_at(size_t index)
 }
 
 void
-print_data_at_indexes(const std::vector<size_t>& indexes)
+print_data_at_indexes(const std::list<size_t>& indexes)
 {
 	if (indexes.empty())
 		return;
 
-	for (const size_t& index : indexes) {
-		print_data_at(index);
-	}
+	for (const size_t& index : indexes) print_data_at(index);
 
 	std::cout << "Ditemukan: " << indexes.size() << " data yang sesuai\n";
 }

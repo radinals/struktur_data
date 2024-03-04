@@ -24,7 +24,7 @@ main()
 			std::cout << "\nERROR: Perintah Invalid!\n";
 			continue;
 		}
-		exec_cmd(&cmd);
+		exec_cmd(cmd);
 	}
 
 	return 0;

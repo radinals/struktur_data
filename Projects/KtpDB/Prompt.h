@@ -41,17 +41,17 @@ typedef enum {
 	CS_First,
 } CmdScope;
 
-typedef struct {
+typedef struct UserCmd {
 	CommandType type;
 	CmdScope scope;
 	CmdTargetType target_type;
 	std::string id;
 	MemberName member;
 	std::string str;
-	int inum;
 	long int lnum;
+	int inum;
 } UserCmd;
 
 UserCmd prompt_user();
-void parse_input(UserCmd& user_cmd, const std::string& str);
-void get_arg(UserCmd& user_cmd);
+void parse_input(UserCmd& cmd, const std::string& str);
+void get_arg(UserCmd& cmd);

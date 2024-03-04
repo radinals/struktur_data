@@ -2,8 +2,8 @@
 
 #include "Prompt.h"
 
+#include <list>
 #include <string>
-#include <vector>
 
 #define _BASESIZE 10
 
@@ -52,6 +52,6 @@ void set_database_size(size_t size);
 
 void print_all_data();
 void print_data_at(size_t index);
-void print_data_at_indexes(const std::vector<size_t>& indexes);
+void print_data_at_indexes(const std::list<size_t>& indexes);
 void edit_data_at(MemberName member, size_t index);
 void check_database_size();
