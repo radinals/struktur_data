@@ -33,6 +33,7 @@ adalah beberapa perintah yang diterima.
     LIST                    -> Tampilkan Semua Data
 
 - Pencarian
+
     SEARCH #12              -> Tampilkan data di index 12.
 
     SEARCH ALL NAMA budi    -> Cari SEMUA data yang memiliki NAMA 'budi' dan tampilkan.
