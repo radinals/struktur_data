@@ -11,7 +11,7 @@ extern DataKtp* Database;
 extern size_t DatabaseSize;
 extern size_t DatabaseLen;
 
-void add_new(const DataKtp& dataktp);
+// void add_new(const DataKtp& dataktp);
 void input_new_data();
 
 void delete_at(size_t index);

@@ -23,13 +23,14 @@ check_database_size()
 	}
 }
 
-void
-add_new(const DataKtp& dataktp)
-{
-	check_database_size();
-	DatabaseLen += 1;
-	Database[DatabaseLen - 1] = dataktp;
-}
+// TODO: find a usage for this.
+// void
+// add_new(const DataKtp& dataktp)
+// {
+// 	check_database_size();
+// 	DatabaseLen += 1;
+// 	Database[DatabaseLen - 1] = dataktp;
+// }
 
 void
 delete_at(size_t index)
