@@ -57,3 +57,8 @@ adalah beberapa perintah yang diterima.
 - ADDING
 
     ADD                    -> (input data baru)
+
+### TODO
+
+* [ ] Save/Read ke/dari file
+* [ ] Input Checking yang lebih efisien.
