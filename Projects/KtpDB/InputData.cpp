@@ -3,6 +3,7 @@
 #include "DataKtp.h"
 
 #include <iostream>
+#include <stdexcept>
 
 void
 get_input(std::string& str, const std::string& prompt)
