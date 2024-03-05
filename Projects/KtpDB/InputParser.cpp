@@ -177,10 +177,6 @@ parse_input(UserCmd& cmd, const std::string& str)
 			if (!target_type_found)
 				cmd.target_type = Target_index;
 
-			if (cmd.type == CMDTYPE_Delete &&
-			    cmd.target_type == Target_index)
-				break;
-
 			if ((cmd.type == CMDTYPE_Search ||
 			     cmd.type == CMDTYPE_Modify) &&
 			    command_scope_found)
@@ -191,7 +187,6 @@ parse_input(UserCmd& cmd, const std::string& str)
 
 			index_found = true;
 			target_type_found = true;
-
 			command_scope_found = true;
 
 			break;

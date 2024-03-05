@@ -54,7 +54,7 @@ input_tahun_lahir(int& tahun)
 inline void
 input_tanggal_lahir(int& tanggal)
 {
-	get_input(tanggal, "- Masukan Hari Kelahiran Anda");
+	get_input(tanggal, "- Masukan Hari Kelahiran Anda: ");
 }
 inline void
 input_pekerjaan(std::string& pekerjaan)

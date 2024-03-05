@@ -44,10 +44,8 @@ exec_cmd(const UserCmd& cmd)
 
 	case CMDTYPE_Delete: {
 		if (cmd.target_type == Target_member && cmd.scope == CS_All) {
-			for (const size_t& index : sequential_search_all(cmd)) {
+			for (const size_t& index : sequential_search_all(cmd))
 				delete_at(index);
-			}
-
 		} else if (cmd.target_type == Target_member &&
 		           cmd.scope == CS_First) {
 			delete_at(sequential_search(cmd));
