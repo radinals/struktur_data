@@ -5,13 +5,12 @@
 
 typedef struct Biodata {
 	std::string nama;
-	float tinggi_badan;
-	int umur;
-	char golongan_darah[3];
+	float tinggi_badan = 0;
+	int umur = 0;
+	char golongan_darah[3] = {'\0'};
 } BioData;
 
 void input_data(Biodata& biodata);
-short input_menu();
 void print_data(const Biodata& biodata);
 
 int
@@ -20,32 +19,6 @@ main()
 	Biodata biodata;
 	while (true) {
 
-		short opsi;
-
-		opsi = input_menu();
-
-		switch (opsi) {
-
-		case 1:
-			input_data(biodata);
-			break;
-		case 2:
-			print_data(biodata);
-			break;
-		case 3:
-			return 0;
-		default:
-			continue;
-		}
-	}
-
-	return -1;
-}
-
-short
-input_menu()
-{
-	while (true) {
 		std::cout << '\n';
 		std::cout << "1. Input Data\n";
 		std::cout << "2. Print Data\n";
@@ -63,15 +36,19 @@ input_menu()
 
 		switch (tmp.at(0)) {
 		case '1':
-			return 1;
+			input_data(biodata);
+			break;
 		case '2':
-			return 2;
+			print_data(biodata);
+			break;
 		case '3':
-			return 3;
+			return 0;
 		default:
 			continue;
 		}
 	}
+
+	return -1;
 }
 
 void
