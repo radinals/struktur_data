@@ -8,18 +8,17 @@ typedef struct Biodata {
 	float tinggi_badan;
 	int umur;
 	char golongan_darah[3];
-}BioData;
-
+} BioData;
 
 void input_data(Biodata& biodata);
 short input_menu();
 void print_data(const Biodata& biodata);
 
-
-int main()
+int
+main()
 {
 	Biodata biodata;
-	while(true) {
+	while (true) {
 
 		short opsi;
 
@@ -27,16 +26,16 @@ int main()
 
 		switch (opsi) {
 
-			case 1:
-				input_data(biodata);
-				break;
-			case 2:
-				print_data(biodata);
-				break;
-			case 3:
-				return 0;
-			default:
-				continue;
+		case 1:
+			input_data(biodata);
+			break;
+		case 2:
+			print_data(biodata);
+			break;
+		case 3:
+			return 0;
+		default:
+			continue;
 		}
 	}
 
@@ -46,7 +45,7 @@ int main()
 short
 input_menu()
 {
-	while(true) {
+	while (true) {
 		std::cout << '\n';
 		std::cout << "1. Input Data\n";
 		std::cout << "2. Print Data\n";
@@ -57,21 +56,26 @@ input_menu()
 		std::cout << "> ";
 		getline(std::cin, tmp);
 
-		if (tmp.empty()) continue;
+		if (tmp.empty())
+			continue;
 
 		std::cout << '\n';
 
-		switch(tmp.at(0))
-		{
-			case '1': return 1;
-			case '2': return 2;
-			case '3': return 3;
-			default: continue;
+		switch (tmp.at(0)) {
+		case '1':
+			return 1;
+		case '2':
+			return 2;
+		case '3':
+			return 3;
+		default:
+			continue;
 		}
 	}
 }
 
-void print_data(const Biodata& biodata)
+void
+print_data(const Biodata& biodata)
 {
 	std::cout << '\n';
 	std::cout << "BIODATA:\n";
@@ -85,52 +89,51 @@ void print_data(const Biodata& biodata)
 void
 input_data(Biodata& biodata)
 {
-	while(true) {
+	while (true) {
 		std::cout << "Masukan Nama Anda: ";
 		getline(std::cin, biodata.nama);
 
-		if (biodata.nama.empty()) continue;
+		if (biodata.nama.empty())
+			continue;
 
 		break;
 	}
 
-
-	while(true)
-	{
+	while (true) {
 		std::string tmp;
 		std::cout << "Masukan Umur Anda: ";
 		getline(std::cin, tmp);
 
-		if (tmp.empty()) continue;
+		if (tmp.empty())
+			continue;
 
 		try {
 			biodata.umur = std::stoi(tmp);
-		} catch(std::invalid_argument) {
+		} catch (std::invalid_argument) {
 			continue;
 		}
 
 		break;
 	}
 
-
-	while(true) {
+	while (true) {
 		std::string tmp;
 		std::cout << "Masukan Tinggi Badan Anda: ";
 		getline(std::cin, tmp);
 
-		if (tmp.empty()) continue;
+		if (tmp.empty())
+			continue;
 
 		try {
 			biodata.tinggi_badan = std::stof(tmp);
-		} catch(std::invalid_argument) {
+		} catch (std::invalid_argument) {
 			continue;
 		}
 
 		break;
 	}
 
-
-	while(true) {
+	while (true) {
 		std::string tmp;
 
 		std::cout << '\n';
@@ -142,24 +145,24 @@ input_data(Biodata& biodata)
 		std::cout << "Apa Golongan Darah Anda: ";
 		getline(std::cin, tmp);
 
-		if (tmp.empty()) continue;
+		if (tmp.empty())
+			continue;
 
-		switch (tmp.at(0))
-		{
-			case '1':
-				strcpy(biodata.golongan_darah, "A");
-				break;
-			case '2':
-				strcpy(biodata.golongan_darah, "B");
-				break;
-			case '3':
-				strcpy(biodata.golongan_darah, "O");
-				break;
-			case '4':
-				strcpy(biodata.golongan_darah, "AB");
-				break;
-			default:
-				continue;
+		switch (tmp.at(0)) {
+		case '1':
+			strcpy(biodata.golongan_darah, "A");
+			break;
+		case '2':
+			strcpy(biodata.golongan_darah, "B");
+			break;
+		case '3':
+			strcpy(biodata.golongan_darah, "O");
+			break;
+		case '4':
+			strcpy(biodata.golongan_darah, "AB");
+			break;
+		default:
+			continue;
 		}
 
 		break;
