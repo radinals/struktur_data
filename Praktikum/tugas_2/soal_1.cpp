@@ -8,7 +8,7 @@ int main()
 	for (int i = 0; i < (sizeof(array) / sizeof(array[0])); i++)
 	{
 		ptr = &array[i];
-		std::cout << ptr;
+		std::cout << *ptr << "\n";
 	}
 
 	return 0;
