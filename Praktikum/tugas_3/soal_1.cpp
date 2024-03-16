@@ -7,7 +7,7 @@ typedef struct Biodata {
 	std::string nama;
 	float tinggi_badan = 0;
 	int umur = 0;
-	char golongan_darah[3] = {'\0'};
+	char golongan_darah[3] = "\0";
 } BioData;
 
 void input_data(Biodata& biodata);
@@ -17,6 +17,7 @@ int
 main()
 {
 	Biodata biodata;
+
 	while (true) {
 
 		std::cout << '\n';
