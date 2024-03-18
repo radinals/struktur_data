@@ -28,7 +28,6 @@ LinkedList::insert(const std::string& nama)
 		Head = new_node;
 	} else {
 		Node* old_head = Head;
-
 		Head = new_node;
 		Head->next = old_head;
 	}
@@ -63,10 +62,10 @@ main()
 {
 	LinkedList list;
 
-	list.insert("Sigit");
-	list.append("Gogon");
-	list.insert("Alipia");
-	list.append("Wardah");
+	list.insert("Sigit");  // { sigit }
+	list.append("Gogon");  // { sigit, gogon }
+	list.insert("Alipia"); // { alipia, sigit, gogon }
+	list.append("Wardah"); // { alipia, sigit, gogon, wardah}
 
 	list.print();
 
