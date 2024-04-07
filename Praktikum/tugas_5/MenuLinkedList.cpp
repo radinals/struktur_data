@@ -15,7 +15,8 @@ struct LinkedList {
 };
 
 void bersihkan_layar();
-void tambah_node(LinkedList* linked_list, int data);
+void tambah_awal(LinkedList* linked_list, int data);
+void tambah_akhir(LinkedList* linked_list, int data);
 void tambah_tengah(LinkedList* linked_list, int data);
 void hapus_node_awal(LinkedList* linked_list);
 void print_linked_list(LinkedList* linked_list);
@@ -43,10 +44,13 @@ tambah_tengah(LinkedList* linked_list, int data)
 {
 	size_t jumlah_node = hitung_node(linked_list);
 
-	if (linked_list->kosong() || jumlah_node < 2)
-		tambah_node(linked_list, data);
-	else {
-
+	if (linked_list->kosong()) {
+		// jika kosong, tambah diawal
+		tambah_awal(linked_list, data);
+	} else if (jumlah_node < 2) {
+		// jika jumlah node kurang dari 2, tambah di akhir
+		tambah_akhir(linked_list, data);
+	} else {
 		Node* node_baru = new Node;
 
 		node_baru->data = data;
@@ -74,15 +78,28 @@ tambah_tengah(LinkedList* linked_list, int data)
 	}
 }
 
-// menambah node baru diawal jika list kosong
-// atau diakhir.
 void
-tambah_node(LinkedList* linked_list, int data)
+tambah_awal(LinkedList* linked_list, int data)
 {
 	Node* node_baru = new Node;
 	node_baru->data = data;
 
-	// jika list kosong tambah di head
+	if (linked_list->kosong()) {
+		linked_list->head = node_baru;
+		linked_list->tail = linked_list->head;
+	} else {
+		// tambah di head
+		node_baru->next = linked_list->head;
+		linked_list->head = node_baru;
+	}
+}
+
+void
+tambah_akhir(LinkedList* linked_list, int data)
+{
+	Node* node_baru = new Node;
+	node_baru->data = data;
+
 	if (linked_list->kosong()) {
 		linked_list->head = node_baru;
 		linked_list->tail = linked_list->head;
@@ -260,7 +277,8 @@ menu(LinkedList* linked_list)
 		std::cout << "SINGLE LINKED LIST NON CIRCULAR\n";
 		std::cout << "-------------------------------\n";
 		std::cout << "Menu : \n";
-		std::cout << "1. Input data\n";
+		std::cout << "0. tambah awal\n";
+		std::cout << "1. tambah akhir\n";
 		std::cout << "2. Hapus data\n";
 		std::cout << "3. Cetak data\n";
 		std::cout << "4. Hapus tengah\n";
@@ -270,12 +288,15 @@ menu(LinkedList* linked_list)
 		std::cout << "Masukkan pilihan Anda: ";
 		std::getline(std::cin, pilihan);
 
-		if (pilihan.empty())
+		if (pilihan.empty() || pilihan.length() != 1)
 			continue;
 
 		switch (pilihan.at(0)) {
+		case '0':
+			tambah_awal(linked_list, loop_input_data());
+			continue;
 		case '1':
-			tambah_node(linked_list, loop_input_data());
+			tambah_akhir(linked_list, loop_input_data());
 			continue;
 		case '2':
 			hapus_node_awal(linked_list);
