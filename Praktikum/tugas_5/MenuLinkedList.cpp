@@ -1,3 +1,4 @@
+#include <cstddef>
 #include <iostream>
 #include <string>
 
@@ -19,6 +20,7 @@ void tambah_awal(LinkedList* linked_list, int data);
 void tambah_akhir(LinkedList* linked_list, int data);
 void tambah_tengah(LinkedList* linked_list, int data);
 void hapus_node_awal(LinkedList* linked_list);
+void hapus_node_akhir(LinkedList* linked_list);
 void print_linked_list(LinkedList* linked_list);
 size_t hitung_node(LinkedList* linked_list);
 void hapus_node_tengah(LinkedList* linked_list);
@@ -128,6 +130,33 @@ hapus_node_awal(LinkedList* linked_list)
 		// jika tidak ada head == NULL
 		linked_list->head = NULL;
 	}
+
+	delete node_dihapus;
+
+	std::cout << "Data Dihapus: " << data_dihapus << "\n";
+}
+
+void
+hapus_node_akhir(LinkedList* linked_list)
+{
+	if (linked_list->kosong())
+		return;
+
+	if (hitung_node(linked_list) < 2) {
+		hapus_node_awal(linked_list);
+		return;
+	}
+
+	Node* node_dihapus = linked_list->tail;
+	int data_dihapus = node_dihapus->data;
+
+	Node* node_sebelum_tail = linked_list->head;
+
+	while (node_sebelum_tail->next != node_dihapus)
+		node_sebelum_tail = node_sebelum_tail->next;
+
+	linked_list->tail = node_sebelum_tail;
+	linked_list->tail->next = NULL;
 
 	delete node_dihapus;
 
@@ -277,13 +306,14 @@ menu(LinkedList* linked_list)
 		std::cout << "SINGLE LINKED LIST NON CIRCULAR\n";
 		std::cout << "-------------------------------\n";
 		std::cout << "Menu : \n";
-		std::cout << "0. tambah awal\n";
-		std::cout << "1. tambah akhir\n";
-		std::cout << "2. Hapus data\n";
-		std::cout << "3. Cetak data\n";
-		std::cout << "4. Hapus tengah\n";
-		std::cout << "5. Tambah tengah\n";
-		std::cout << "6. Exit\n";
+		std::cout << "0. hapus akhir\n";
+		std::cout << "1. tambah awal\n";
+		std::cout << "2. tambah akhir\n";
+		std::cout << "3. Hapus data\n";
+		std::cout << "4. Cetak data\n";
+		std::cout << "5. Hapus tengah\n";
+		std::cout << "6. Tambah tengah\n";
+		std::cout << "7. Exit\n";
 
 		std::cout << "Masukkan pilihan Anda: ";
 		std::getline(std::cin, pilihan);
@@ -293,24 +323,27 @@ menu(LinkedList* linked_list)
 
 		switch (pilihan.at(0)) {
 		case '0':
+			hapus_node_akhir(linked_list);
+			break;
+		case '1':
 			tambah_awal(linked_list, loop_input_data());
 			continue;
-		case '1':
+		case '2':
 			tambah_akhir(linked_list, loop_input_data());
 			continue;
-		case '2':
+		case '3':
 			hapus_node_awal(linked_list);
 			break;
-		case '3':
+		case '4':
 			print_linked_list(linked_list);
 			break;
-		case '4':
+		case '5':
 			hapus_node_tengah(linked_list);
 			break;
-		case '5':
+		case '6':
 			tambah_tengah(linked_list, loop_input_data());
 			continue;
-		case '6':
+		case '7':
 			keluar_program(linked_list);
 			break;
 		default:
