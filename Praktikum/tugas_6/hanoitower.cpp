@@ -2,10 +2,10 @@
 
 #define LIMIT 3
 
-enum Balok {
+enum Lempengan {
 	MERAH = 50,
-	KUNING = 60,
-	HIJAU = 100,
+	KUNING = 75,
+	HIJAU = 100
 };
 
 template <typename T> struct Stack {
@@ -18,13 +18,16 @@ template <typename T> struct Stack {
 	}
 
 	bool kosong() { return top <= -1; }
-
 	bool penuh() { return top >= LIMIT; }
 
 	void tampilkan()
 	{
-		for (int i = LIMIT - 1; i >= 0; i--)
-			std::cout << data[i] << ' ';
+		if (kosong()) {
+			std::cout << "Kosong\n";
+			return;
+		}
+
+		for (int i = top; i >= 0; i--) std::cout << data[i] << ' ';
 		std::cout << '\n';
 	}
 
@@ -39,19 +42,17 @@ template <typename T> struct Stack {
 	{
 		if (kosong())
 			return -1;
-		T ret = data[top];
-		data[top] = 0;
-		--top;
-		return ret;
+		return data[top--];
 	}
 
 	void clear() { top = -1; }
 };
 
 void
-tampilkan_tumpukan(Stack<int> menara_a, Stack<int> menara_b,
+tampilkan_tumpukan(size_t langkah, Stack<int> menara_a, Stack<int> menara_b,
                    Stack<int> menara_c)
 {
+	std::cout << "Langkah " << langkah << ":\n";
 	std::cout << "Menara A: ";
 	menara_a.tampilkan();
 	std::cout << "Menara B: ";
@@ -68,55 +69,37 @@ main()
 	Stack<int> menara_b;
 	Stack<int> menara_c;
 
-	tampilkan_tumpukan(menara_a, menara_b, menara_c);
-
 	menara_a.push(HIJAU);
-
-	tampilkan_tumpukan(menara_a, menara_b, menara_c);
-
 	menara_a.push(KUNING);
-
-	tampilkan_tumpukan(menara_a, menara_b, menara_c);
-
 	menara_a.push(MERAH);
-
-	tampilkan_tumpukan(menara_a, menara_b, menara_c);
+	tampilkan_tumpukan(0, menara_a, menara_b, menara_c);
 
 	menara_b.push(menara_a.pop());
-
-	tampilkan_tumpukan(menara_a, menara_b, menara_c);
+	tampilkan_tumpukan(1, menara_a, menara_b, menara_c);
 
 	menara_c.push(menara_a.pop());
-
-	tampilkan_tumpukan(menara_a, menara_b, menara_c);
+	tampilkan_tumpukan(2, menara_a, menara_b, menara_c);
 
 	menara_a.push(menara_b.pop());
-
-	tampilkan_tumpukan(menara_a, menara_b, menara_c);
+	tampilkan_tumpukan(3, menara_a, menara_b, menara_c);
 
 	menara_b.push(menara_c.pop());
-
-	tampilkan_tumpukan(menara_a, menara_b, menara_c);
+	tampilkan_tumpukan(4, menara_a, menara_b, menara_c);
 
 	menara_b.push(menara_a.pop());
-
-	tampilkan_tumpukan(menara_a, menara_b, menara_c);
+	tampilkan_tumpukan(5, menara_a, menara_b, menara_c);
 
 	menara_c.push(menara_a.pop());
-
-	tampilkan_tumpukan(menara_a, menara_b, menara_c);
+	tampilkan_tumpukan(6, menara_a, menara_b, menara_c);
 
 	menara_a.push(menara_b.pop());
-
-	tampilkan_tumpukan(menara_a, menara_b, menara_c);
+	tampilkan_tumpukan(7, menara_a, menara_b, menara_c);
 
 	menara_c.push(menara_b.pop());
-
-	tampilkan_tumpukan(menara_a, menara_b, menara_c);
+	tampilkan_tumpukan(8, menara_a, menara_b, menara_c);
 
 	menara_c.push(menara_a.pop());
-
-	tampilkan_tumpukan(menara_a, menara_b, menara_c);
+	tampilkan_tumpukan(9, menara_a, menara_b, menara_c);
 
 	return 0;
 }
