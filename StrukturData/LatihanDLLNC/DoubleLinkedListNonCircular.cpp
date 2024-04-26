@@ -8,7 +8,8 @@ struct Node {
 	Node(int data) : data(data){};
 };
 
-struct DoubleLinkedListNonCircular {
+class DoubleLinkedListNonCircular
+{
       private:
 	Node* head = nullptr;
 	Node* tail = nullptr;
