@@ -5,6 +5,6 @@
 * [X] Double Linked List
 * [ ] Circular Linked List
 * [X] Stack
-* [ ] Queue
+* [X] Queue
 * [ ] Tree
 * [ ] Graph
