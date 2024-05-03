@@ -16,28 +16,36 @@ template <typename T> class Queue
 
 	void create_array() { m_array = new T[m_QueueSize]; }
 
-	void geserElemen(int start)
+	void geserKanan(int start)
 	{
-		for (int i = start; i < m_front; i++) {
+		for (int i = m_front; i >= start; i--) {
 			m_array[i + 1] = m_array[i];
 		}
 	}
 
 	void tambah_tengah(const T& data)
 	{
-		geserElemen((m_front - 1) / 2);
-		m_array[m_front / 2] = data;
-		m_front++;
+		if (!isEmpty()) {
+			geserKanan(m_front / 2);
+			m_array[(m_front < 2) ? 1 : (m_front / 2)] = data;
+			m_front++;
+		} else {
+			tambah_awal(data);
+		}
 	}
 
 	void tambah_akhir(const T& data) { m_array[++m_front] = data; }
 
 	void tambah_awal(const T& data)
 	{
-		m_array[++m_front] = data;
-		geserElemen(0);
-		m_array[0] = data;
 		m_front++;
+
+		if (!isEmpty()) {
+			geserKanan(0);
+			m_array[0] = data;
+		} else {
+			m_array[m_front] = data;
+		}
 	}
 
       public:
@@ -72,7 +80,14 @@ template <typename T> class Queue
 		if (isEmpty()) {
 			return T();
 		}
-		T data = m_array[m_front--];
+
+		T data = m_array[0];
+
+		for (int i = 1; i <= m_front; i++) {
+			m_array[i - 1] = m_array[i];
+		}
+
+		m_front--;
 		return data;
 	}
 
@@ -81,7 +96,7 @@ template <typename T> class Queue
 		if (isEmpty()) {
 			return;
 		}
-		for (int i = 0; i < m_front; i++) {
+		for (int i = 0; i <= m_front; i++) {
 			std::cout << '"' << m_array[i] << '"' << ' ';
 		}
 		std::cout << '\n';
