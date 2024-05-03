@@ -1,4 +1,3 @@
-#include <functional>
 #include <iostream>
 #include <string>
 
@@ -77,13 +76,13 @@ template <typename T> class Queue
 		return data;
 	}
 
-	void foreach (std::function<void(T&)> func)
+	void print_all()
 	{
 		if (isEmpty()) {
 			return;
 		}
 		for (int i = 0; i < m_front; i++) {
-			func(m_array[i]);
+			std::cout << '"' << m_array[i] << '"' << ' ';
 		}
 		std::cout << '\n';
 	}
@@ -120,10 +119,6 @@ int
 main()
 {
 	Queue<std::string> data;
-
-	auto print = [](std::string& str) {
-		std::cout << '"' << str << '"' << ' ';
-	};
 
 	while (true) {
 		clear_screen();
@@ -167,7 +162,7 @@ main()
 			          << '\n';
 			break;
 		case '3':
-			data.foreach (print);
+			data.print_all();
 			break;
 		case '4':
 			return 0;
