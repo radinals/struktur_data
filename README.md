@@ -6,5 +6,5 @@
 * [ ] Circular Linked List
 * [X] Stack
 * [X] Queue
-* [ ] Tree
+* [X] Tree
 * [ ] Graph
