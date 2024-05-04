@@ -102,8 +102,6 @@ template <typename T> class Queue
 		std::cout << '\n';
 	}
 
-	;
-
 	inline T clear() { m_front = -1; }
 };
 
@@ -149,7 +147,10 @@ main()
 		case '1': {
 			std::string pesan = input_loop("Input Pesan: ");
 			while (true) {
-				std::cout << "\n1. Level Tinggi\n";
+				clear_screen();
+				std::cout
+				    << "===: Tentukan Level Urgensi Pesan :===\n";
+				std::cout << "1. Level Tinggi\n";
 				std::cout << "2. Level Menengah\n";
 				std::cout << "3. Level Rendah\n";
 				std::string Level =
