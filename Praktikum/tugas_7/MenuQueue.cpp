@@ -94,6 +94,7 @@ template <typename T> class Queue
 	void print_all()
 	{
 		if (isEmpty()) {
+			std::cout << "Queue Kosong!\n";
 			return;
 		}
 		for (int i = 0; i <= m_front; i++) {
@@ -102,7 +103,7 @@ template <typename T> class Queue
 		std::cout << '\n';
 	}
 
-	inline T clear() { m_front = -1; }
+	inline void clear() { m_front = -1; }
 };
 
 void
@@ -138,8 +139,9 @@ main()
 		std::cout << "===: Queue Menu :===\n";
 		std::cout << "1. Enqueue\n";
 		std::cout << "2. Dequeue\n";
-		std::cout << "3. Print\n";
-		std::cout << "4. Exit\n";
+		std::cout << "3. Clear\n";
+		std::cout << "4. Print\n";
+		std::cout << "5. Exit\n";
 
 		std::string input = input_loop("Pilihan: ");
 
@@ -178,9 +180,13 @@ main()
 			          << '\n';
 			break;
 		case '3':
-			data.print_all();
+			data.clear();
+			std::cout << "Queue telah di clear\n";
 			break;
 		case '4':
+			data.print_all();
+			break;
+		case '5':
 			return 0;
 		default:
 			continue;
