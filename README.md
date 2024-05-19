@@ -7,4 +7,4 @@
 * [X] Stack
 * [X] Queue
 * [X] Tree
-* [ ] Graph
+* [X] Graph
