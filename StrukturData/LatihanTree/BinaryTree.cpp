@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 
 template <typename T> struct Node {
 	T m_data;
@@ -9,7 +10,6 @@ template <typename T> struct Node {
 
 template <typename T> class BinaryTree
 {
-      public:
       private:
 	Node<T>* m_root = nullptr;
 
@@ -18,6 +18,47 @@ template <typename T> class BinaryTree
 	~BinaryTree() { destroyTree(m_root); };
 	bool isEmpty(Node<T>*& node) { return node == nullptr; }
 	Node<T>*& getRoot() { return m_root; };
+
+	void add(T data)
+	{
+		if (isEmpty(m_root)) {
+			m_root = new Node(data);
+			return;
+		}
+
+		std::queue<Node<T>*> Q;
+
+		Q.push(m_root);
+
+		// by the ordering of this loop, the left node will be
+		// checked first, and will be added to first (from the second
+		// time this function is ran)
+
+		while (!Q.empty()) {
+			Node<T>* current_node = Q.front();
+			Q.pop();
+
+			// check if left of parent is null
+			if (isEmpty(current_node->m_left)) {
+				current_node->m_left = new Node(data);
+				break;
+			} else {
+				// if left is occupied, push the left to the
+				// stack
+				Q.push(current_node->m_left);
+			}
+
+			// check if right of parent is null
+			if (isEmpty(current_node->m_right)) {
+				current_node->m_right = new Node(data);
+				break;
+			} else {
+				// if right is occupied, push the right to the
+				// stack
+				Q.push(current_node->m_right);
+			}
+		}
+	}
 
 	void initRoot(T data)
 	{
@@ -85,8 +126,8 @@ int
 main()
 {
 	BinaryTree<int> tree;
-	tree.initRoot(10);
-	tree.addLeft(tree.getRoot(), 12);
-	tree.inorder(tree.getRoot());
+	tree.add(10);
+	tree.add(12);
+	tree.add(13);
 	tree.postorder(tree.getRoot());
 }
